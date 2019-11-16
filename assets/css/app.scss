@@ -1,0 +1,14 @@
+@import 'variables.scss';
+@import 'fonts.scss';
+body {
+    background-color: $grey;
+}
+.navbar {
+    background-color: $blue;
+    color : $dark;
+} .navbar-brand {
+    font-family: $typo-title;
+    &:hover {
+        color : $dark;
+    }
+  }
