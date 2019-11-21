@@ -2,6 +2,7 @@
 // src/Controller/WildController.php
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,28 +63,32 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/category/{categoryTitle}",
-     *     defaults={"categoryTitle"=null},
+     * @Route("/wild/category/{categoryName}", requirements={"categoryName"="[a-z0-9-]+"},
+     *     defaults={"categoryName"=null},
      *     name="show_category")
-     * @param string|null $categoryTitle
+     * @param string|null $categoryName
      * @return Response
      */
-    public function showByCategory(?string $categoryTitle): Response
+    public function showByCategory(?string $categoryName):Response
     {
-        $categoryTitle = $this->getDoctrine()
-            ->getRepository(Category::class)
-            ->findBy(['name' => $categoryTitle]);
-        $programsByCategories = $this->getDoctrine()->getRepository(Program::class)->findBy(['categoryTitle' => $categoryTitle], ['id' => 'DESC'], 3, null);
-        if (!$categoryTitle) {
-            throw $this->createNotFoundException(
-                'No program found in program\'s table.'
-            );
+        if (!$categoryName) {
+            throw $this
+                ->createNotFoundException('No category has been sent to find a category in program\'s table.');
         }
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy(['name' => $categoryName]);
+
+        $programs = $this->getDoctrine()
+            ->getRepository(Program::class)
+            ->findBy(
+                ['category' => $category],
+                ['id' => 'DESC'],
+                3, null);
         return $this->render(
             'wild/category.html.twig', [
-            'programsByCategories' => $programsByCategories
+            'programs' => $programs
         ]);
     }
-
 
 }
