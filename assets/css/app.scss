@@ -1,8 +1,11 @@
 @import 'variables.scss';
 @import 'fonts.scss';
+
+
 body {
-    background-color: $grey;
+    background-color : white;
 }
+
 .navbar {
     background-color: $blue;
     color : $dark;

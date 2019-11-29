@@ -9,8 +9,19 @@
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
+            {% for season in seasons %}
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="{{ path('wild_season', {'id' : season.id}) }}">Saison : {{ season.id }} </a>
+                        <span class="badge badge-primary badge-pill">5</span>
+                    </li>
+                </ul>
+
+                <br/>
+            {% endfor %}
         </div>
     </div>
+
 
     <a href="{{ path('wild_index') }}">
         Retour à l'accueil

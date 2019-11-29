@@ -11,3 +11,4 @@ Créer le fichier .env.local
     symfony server:start 
 
 
+https://www.loom.com/share/e0db8866e649475195f620f2bde29494
