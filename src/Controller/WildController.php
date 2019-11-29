@@ -32,11 +32,10 @@ class WildController extends AbstractController
                 'programs' => $programs
         ]);
     }
+
     /**
-     * Getting a program with a formatted slug for title
-     *
-     * @param string $slug The slugger
      * @Route("/show/{slug<^[ a-zA-Z0-9-é]+$>}", defaults={"slug" = null}, name="wild_show")
+     * @param string $slug
      * @return Response
      */
     public function showByProgram(string $slug):Response
