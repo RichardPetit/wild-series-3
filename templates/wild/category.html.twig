@@ -2,9 +2,9 @@
 {% block body %}
 
     <ul>
-        {% for show in programs %}
-            <li>{{ show.id }} - {{ show.title }} :</li>
-            <p>{{ show.summary }}</p>
+        {% for program in programs %}
+            <li>{{ program.id }} - {{ program.title }} :</li>
+            <p>{{ program.summary }}</p>
         {% endfor %}
     </ul>
 
