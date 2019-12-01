@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajoutez une catégorie{% endblock %}
+
+{% block body %}
+
+    <h1>La catégorie {{ category.name }} a bien été ajoutée</h1>
+    <a href="{{ path('category_index') }}" class="btn btn-dark">Retour</a>
+
+{% endblock %}
