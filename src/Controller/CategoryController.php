@@ -24,7 +24,7 @@ class CategoryController extends AbstractController
      * @param EntityManagerInterface $em
      * @return \Symfony\Component\HttpFoundation\Response
      */
-public function add(Request $request, EntityManagerInterface $em)
+public function add(Request $request, EntityManagerInterface $em): Response
 {
     $category = new Category();
 
@@ -36,12 +36,7 @@ public function add(Request $request, EntityManagerInterface $em)
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
-        // $form->getData() holds the submitted values
-        // but, the original `$task` variable has also been updated
         $category = $form->getData();
-
-        // ... perform some action, such as saving the task to the database
-        // for example, if Task is a Doctrine entity, save it!
         $em->persist($category);
         $em->flush();
 

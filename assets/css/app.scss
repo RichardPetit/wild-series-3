@@ -1,17 +1,16 @@
 @import 'variables.scss';
 @import 'fonts.scss';
 
-
-body {
-    background-color : white;
-}
-
 .navbar {
-    background-color: $blue;
-    color : $dark;
-} .navbar-brand {
-    font-family: $typo-title;
-    &:hover {
-        color : $dark;
-    }
-  }
+  background-color: $blue;
+} .nav-link {
+    color : white;
+  font-size : 20px;
+  }  .navbar-brand {
+       font-family: $typo-title;
+       color : white;
+  font-size: 35px;
+       &:hover {
+         color : $dark;
+       }
+     }

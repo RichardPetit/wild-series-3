@@ -3,18 +3,15 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
+
+    <h4 class = "text-primary m-3">Toutes les séries - WILDSÉRIES </h4>
             <div class="row">
                 {% for program in programs %}
-                <div class="col-sm-4">
-                    <div class="card" style="width: 25rem;">
+                <div class="col">
+                    <div class="card" style="width: 217px;">
+                      <a href="{{ path('wild_show', {'slug' : program.title}) }}" class="btn btn-primary">
                         <img src="{{program.poster}}" alt="{{ program.title }}" class="card-img-top">
-                        <div class="card-body ">
-                            <h5 class="card-title"> {{ loop.index }} / {{ program.title }}</h5>
-                            <p class="card-text">{{ program.summary }}</p>
-                            <p>Categorie : {{ program.category.name }}</p>
-                            <a href="{{ path('wild_show', {'slug' : program.title}) }}" class="btn btn-primary">View</a>
-                        </div>
+                      </a>
                     </div>
                 </div>
                 {% endfor %}
