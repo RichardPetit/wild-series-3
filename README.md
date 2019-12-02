@@ -18,3 +18,5 @@ Symfony 10 : https://www.loom.com/share/4e9c9bfeb7774f5588ccd1cec95c6ec2
 
 
 Symfony From : https://www.loom.com/share/7865de4d32ed4809bc434c5537d577b5
+
+Symfony CRUD : https://www.loom.com/share/9ec464cd3b2f470cb72bb8020a1bf089
