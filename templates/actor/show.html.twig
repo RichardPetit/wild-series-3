@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+{% block title %}Acteurs {% endblock %}
+
+{% block body %}
+    <h1>Acteur </h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ actor.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ actor.name }}</td>
+        </tr>
+        <tr>
+            <th>Séries</th>
+            {% for program in series %}
+                <td><a href="{{ path('program_show', {'id': program.id}) }}">{{ program.title }}</a></td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('wild_index') }}">Retour à l'accueil</a>
+
+{% endblock %}

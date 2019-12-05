@@ -26,6 +26,15 @@
         </tbody>
     </table>
 
+    <strong>Acteur :</strong>
+    <ul>
+        {% for actor in program.actors %}
+            <li>{{ actor.name }} </li>
+        {% else %}
+            <li>Aucun acteur pour cette série</li>
+        {% endfor %}
+    </ul>
+
     <a href="{{ path('program_index') }}">back to list</a>
 
     <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>
