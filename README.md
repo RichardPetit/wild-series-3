@@ -12,3 +12,4 @@ Créer le fichier .env.local
 
 
 14 - Symfony : EntityType : https://www.youtube.com/watch?v=zheXX8wZaaw&feature=youtu.be 
+15 - Symfony Fixtures:  https://youtu.be/1_dw0PxoqCs 
