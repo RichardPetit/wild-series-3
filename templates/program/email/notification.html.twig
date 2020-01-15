@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <style>
+    img {
+        max-width: 50%;
+    }
+</style>
+    <h2>Bonjour Serial Viewer!</h2>
+
+    <p>Une série vient d'être ajoutée à notre site: {{ program.title }}</p>
+    <img src="{{ program.poster }}" alt="poster de la série {{ program.title }}">
+    <a href="http://127.0.0.1:8000/program/{{ program.slug }}">Regarder la série</a>
+
+{% endblock %}
