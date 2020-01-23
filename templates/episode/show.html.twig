@@ -7,24 +7,47 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ episode.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ episode.title }}</td>
-            </tr>
-            <tr>
-                <th>Number</th>
-                <td>{{ episode.number }}</td>
-            </tr>
-            <tr>
-                <th>Synopsis</th>
-                <td>{{ episode.synopsis }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ episode.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ episode.title }}</td>
+        </tr>
+        <tr>
+            <th>Number</th>
+            <td>{{ episode.number }}</td>
+        </tr>
+        <tr>
+            <th>Synopsis</th>
+            <td>{{ episode.synopsis }}</td>
+        </tr>
+        <tr>
+            <th>Commentaires</th>
+            <td>
+                <ul>
+                    {% for comment in comments %}
+                          <li> {{ comment.author.email }} </li>
+                        <li>  {{ comment.comment }}</li>
+                        <li> Rate : {{ comment.rate }} </li>
+
+
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
         </tbody>
     </table>
+    {% if app.user %}
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <a href="{{ path('comment_new', {'id': episode.id}) }}">Laisser un commentaire</a>
+    {% endif %}
+    <br>
 
     <a href="{{ path('episode_index') }}">back to list</a>
 

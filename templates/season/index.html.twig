@@ -12,6 +12,7 @@
                 <th>Number</th>
                 <th>Year</th>
                 <th>Description</th>
+                <th>Episode</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ season.number }}</td>
                 <td>{{ season.year }}</td>
                 <td>{{ season.description }}</td>
+                <td>{{ season.episode.title }}</td>
                 <td>
                     <a href="{{ path('season_show', {'id': season.id}) }}">show</a>
                     <a href="{{ path('season_edit', {'id': season.id}) }}">edit</a>

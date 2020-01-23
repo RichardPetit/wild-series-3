@@ -10,6 +10,11 @@
             <h3>Episode {{ episode.number }}-{{ episode.title }}</h3>
             <h4>{{ program.summary }}</h4>
             <p>{{ episode.synopsis }}</p>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
             <a href="{{ path('wild_season', {'id' : season.id}) }}">Go back to season {{ season.id }} </a>
         </div>
     </div>
