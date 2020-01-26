@@ -31,8 +31,10 @@
                           <li> {{ comment.author.email }} </li>
                         <li>  {{ comment.comment }}</li>
                         <li> Rate : {{ comment.rate }} </li>
-
-
+                        {% if app.user == comment.author or is_granted('ROLE_ADMIN') %}
+                            {{ include('comment/_delete_form.html.twig') }}
+                        {% endif %}
+                        <hr>
                     {% endfor %}
                 </ul>
             </td>
@@ -40,18 +42,16 @@
         </tbody>
     </table>
     {% if app.user %}
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <a href="{{ path('comment_new', {'id': episode.id}) }}">Laisser un commentaire</a>
+        <a class="btn btn-light"href="{{ path('comment_new', {'id': episode.id}) }}">Laisser un commentaire</a>
     {% endif %}
+
     <br>
+    <a href="{{ path('episode_index') }}">back to list</a> <br>
 
-    <a href="{{ path('episode_index') }}">back to list</a>
 
-    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
+    {%  if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
+        {{ include('episode/_delete_form.html.twig') }}
+    {% endif %}
 
-    {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}

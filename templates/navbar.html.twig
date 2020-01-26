@@ -48,11 +48,9 @@
                             <a class="nav-link  text-white" href="{{ path('app_logout') }}"> Se déconnecter</a>
                         {% else %}
                             <a class="nav-link  text-white" href="{{ path('app_login') }}">Connexion</a>
+                            <a class="nav-link disabled text-white" href="#">Inscription</a>
                         {% endif %}
-                        <a class="nav-link disabled text-white" href="#">Inscription</a>
                     </li>
-
-            <input class="form-control w-10 pr-0" type="search" placeholder="Rechercher" aria-label="Search">
                 </ul>
             </div>
         </form>

@@ -4,14 +4,15 @@
 {% block title %}Ajoutez une catégorie{% endblock %}
 
 {% block body %}
+    {%  if is_granted('ROLE_ADMIN') %}
+        <h1>Ajoutez une catégorie</h1>
+        {{ form_start(form) }}
 
-    <h1>Ajoutez une catégorie</h1>
-    {{ form_start(form) }}
+        {{ form_row(form.name) }}
 
-    {{ form_row(form.name) }}
+        <button type="submit" name="btnAddCategory">Ajouter</button>
 
-    <button type="submit" name="btnAddCategory">Ajouter</button>
-
-    {{ form_end(form) }}
+        {{ form_end(form) }}
+    {% endif %}
 
 {% endblock %}
