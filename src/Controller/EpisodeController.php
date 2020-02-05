@@ -46,6 +46,7 @@ class EpisodeController extends AbstractController
             $entityManager->persist($episode);
             $entityManager->flush();
 
+            $this->addFlash('success', 'L\épisode a été ajouté');
             return $this->redirectToRoute('episode_index');
         }
 
@@ -79,6 +80,7 @@ class EpisodeController extends AbstractController
             $episode->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'L\épisode a été modifié');
             return $this->redirectToRoute('episode_index');
         }
 
@@ -99,6 +101,7 @@ class EpisodeController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('danger', 'L\épisode a été supprimé');
         return $this->redirectToRoute('episode_index');
     }
 
@@ -119,6 +122,8 @@ class EpisodeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Le commentaire a été posté');
             return $this->redirectToRoute('episode_show', ['slug' => $episode->getSlug()]);
         }
         return $this->render('comment/new.html.twig', [

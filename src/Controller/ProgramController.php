@@ -58,6 +58,7 @@ class ProgramController extends AbstractController
                 ]));
 
             $mailer->send($email);
+            $this->addFlash('success', 'Le programme a été ajouté');
             return $this->redirectToRoute('program_index');
         }
 
@@ -94,6 +95,7 @@ class ProgramController extends AbstractController
             $program->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Le programme a été modifié');
             return $this->redirectToRoute('program_index');
         }
 
@@ -115,6 +117,7 @@ class ProgramController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('danger', 'Le programme a été supprimé');
         return $this->redirectToRoute('program_index');
     }
 }

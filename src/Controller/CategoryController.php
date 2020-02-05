@@ -42,6 +42,7 @@ public function add(Request $request, EntityManagerInterface $em): Response
         $em->persist($category);
         $em->flush();
 
+        $this->addFlash('success', 'La catégorie été ajoutée');
         return $this->render('Category/add.html.twig', [
             'category' => $category
             ]);

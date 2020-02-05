@@ -42,6 +42,8 @@ class CommentController extends AbstractController
             $entityManager->flush();
             $episode = new Episode();
             $episodeId = $episode->getId();
+
+            $this->addFlash('success', 'Le commentaire a été posté');
             return $this->redirectToRoute('episode_show', ['id' => $episodeId]);
         }
         return $this->render('episode/new.html.twig', [
@@ -61,6 +63,7 @@ class CommentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Le commentaire a été modifié');
             return $this->redirectToRoute('comment_index');
         }
 
@@ -81,6 +84,7 @@ class CommentController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('success', 'Le commentaire a été supprimé');
         return $this->redirectToRoute('comment_index');
     }
 }
